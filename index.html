@@ -210,6 +210,9 @@
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleCupertino">CHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleFremont">FHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleLynbrook">LHS</button>
+                <button class="btn bg-grey-700 text-2xl text-light-grey"
+                    id="toggleDistrictOffice">District-Office</button>
+
             </div>
             <canvas id="co2Chart"></canvas>
         </div>
@@ -500,9 +503,64 @@
             ];
 
             const districtOfficeData = [
-                { "Date": " 11/25/2018", "CO2": 64011.72 },
-                { "Date": " 12/25/2018", "CO2": 68092.02 },
+                { "Date": " 11/19/2018", "CO2": 1531.71 },
+                { "Date": " 12/19/2018", "CO2": 2119.14 },
+                { "Date": " 1/18/2019", "CO2": 2519.91 },
+                { "Date": " 2/20/2019", "CO2": 2662.65 },
+                { "Date": " 3/21/2019", "CO2": 1833.66 },
+                { "Date": " 4/22/2019", "CO2": 1092.51 },
+                { "Date": " 5/21/2019", "CO2": 620.37 },
+                { "Date": " 6/20/2019", "CO2": 274.5 },
+                { "Date": " 7/22/2019", "CO2": 181.17 },
+                { "Date": " 8/21/2019", "CO2": 93.33 },
+                { "Date": " 9/20/2019", "CO2": 175.68 },
+                { "Date": " 10/21/2019", "CO2": 433.71 },
+                { "Date": " 11/18/2019", "CO2": 620.37 },
+                { "Date": " 12/19/2019", "CO2": 1262.7 },
+                { "Date": " 1/21/2020", "CO2": 1877.58 },
+                { "Date": " 2/20/2020", "CO2": 1185.84 },
+                { "Date": " 3/20/2020", "CO2": 3997.29 },
+                { "Date": " 4/21/2020", "CO2": 7085.16 },
+                { "Date": " 5/20/2020", "CO2": 52.47 },
+                { "Date": " 6/19/2020", "CO2": 823.95 },
+                { "Date": " 7/20/2020", "CO2": 2716.26 },
+                { "Date": " 8/19/2020", "CO2": 6858.51 },
+                { "Date": " 9/18/2020", "CO2": 8658.06 },
+                { "Date": " 10/20/2020", "CO2": 13963.71 },
+                { "Date": " 11/17/2020", "CO2": 9649.41 },
+                { "Date": " 12/18/2020", "CO2": 12213.57 },
+                { "Date": " 1/20/2021", "CO2": 11850.27 },
+                { "Date": " 2/19/2021", "CO2": 10939.8 },
+                { "Date": " 3/22/2021", "CO2": 8656.08 },
+                { "Date": " 4/21/2021", "CO2": 6960.93 },
+                { "Date": " 5/20/2021", "CO2": 6407.04 },
+                { "Date": " 6/21/2021", "CO2": 7033.41 },
+                { "Date": " 7/21/2021", "CO2": 4993.68 },
+                { "Date": " 8/20/2021", "CO2": 12424.32 },
+                { "Date": " 9/21/2021", "CO2": 18654.24 },
+                { "Date": " 10/20/2021", "CO2": 21121.62 },
+                { "Date": " 11/18/2021", "CO2": 20691.0 },
+                { "Date": " 12/20/2021", "CO2": 27108.57 },
+                { "Date": " 1/19/2022", "CO2": 28064.52 },
+                { "Date": " 2/17/2022", "CO2": 28712.97 },
+                { "Date": " 3/21/2022", "CO2": 22689.6 },
+                { "Date": " 4/20/2022", "CO2": 21163.29 },
+                { "Date": " 5/19/2022", "CO2": 18317.1 },
+                { "Date": " 6/17/2022", "CO2": 16809.78 },
+                { "Date": " 7/20/2022", "CO2": 15813.93 },
+                { "Date": " 8/18/2022", "CO2": 16919.49 },
+                { "Date": " 9/20/2022", "CO2": 23485.14 },
+                { "Date": " 10/19/2022", "CO2": 20706.72 },
+                { "Date": " 11/18/2022", "CO2": 24194.4 },
+                { "Date": " 12/19/2022", "CO2": 27492.09 },
+                { "Date": " 1/19/2023", "CO2": 27959.88 },
+                { "Date": " 2/17/2023", "CO2": 27975.51 },
+                { "Date": " 3/21/2023", "CO2": 27432.24 },
+                { "Date": " 4/20/2023", "CO2": 24070.26 },
+                { "Date": " 5/19/2023", "CO2": 19851.54 },
+                { "Date": " 6/20/2023", "CO2": 17866.35 }
             ];
+
 
             const fremontData = [
                 { "Date": " 12/25/2018", "CO2": 59462.19 },
@@ -689,6 +747,11 @@
                 this.classList.toggle('bg-purple-300');
                 toggleDataset(co2Chart, 'Lynbrook');
             });
+            document.getElementById('toggleDistrictOffice').addEventListener('click', function () {
+                this.classList.toggle('bg-emerald-300');
+                toggleDataset(co2Chart, 'District Office');
+            });
+
 
             function toggleDataset(chart, label) {
                 const dataset = chart.data.datasets.find(d => d.label === label);
