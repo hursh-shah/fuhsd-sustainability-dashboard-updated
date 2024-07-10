@@ -683,9 +683,10 @@
             let montaVistaEmissions = montaVistaData.map(data => data['Total CO2 Emissions']);
             let homesteadEmissions = homesteadData.map(data => data['Total Carbon Emissions']);
             let cupertinoEmissions = cupertinoData.map(data => data['CO2']);
-            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2']);
             let fremontEmissions = fremontData.map(data => data['CO2']);
             let lynbrookEmissions = lynbrookData.map(data => data['CO2']);
+            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2']);
+
 
             let ctx = document.getElementById('co2Chart').getContext('2d');
             let co2Chart = new Chart(ctx, {
@@ -696,9 +697,10 @@
                         { label: 'MVHS', data: montaVistaEmissions, borderColor: '#2e7d32', backgroundColor: '#2e7d32', hidden: false },
                         { label: 'HHS', data: homesteadEmissions, borderColor: '#8e24aa', backgroundColor: '#8e24aa', hidden: true },
                         { label: 'Cupertino', data: cupertinoEmissions, borderColor: '#f39c12', backgroundColor: '#f39c12', hidden: true },
-                        { label: 'District Office', data: districtOfficeEmissions, borderColor: '#3498db', backgroundColor: '#3498db', hidden: true },
                         { label: 'Fremont', data: fremontEmissions, borderColor: '#e74c3c', backgroundColor: '#e74c3c', hidden: true },
-                        { label: 'Lynbrook', data: lynbrookEmissions, borderColor: '#9b59b6', backgroundColor: '#9b59b6', hidden: true }
+                        { label: 'Lynbrook', data: lynbrookEmissions, borderColor: '#9b59b6', backgroundColor: '#9b59b6', hidden: true },
+                        { label: 'District Office', data: districtOfficeEmissions, borderColor: '#3498db', backgroundColor: '#3498db', hidden: true }
+
                     ]
                 },
                 options: {
@@ -748,7 +750,7 @@
                 toggleDataset(co2Chart, 'Lynbrook');
             });
             document.getElementById('toggleDistrictOffice').addEventListener('click', function () {
-                this.classList.toggle('bg-emerald-300');
+                this.classList.toggle('bg-blue-300');
                 toggleDataset(co2Chart, 'District Office');
             });
 
