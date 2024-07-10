@@ -276,7 +276,7 @@
 
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
-                const extraCO2 = Math.abs(temperature - (isSummer ? 72 : 68)) * 5;
+                const extraCO2 = Math.abs(temperature - (isSummer ? 72 : 68)) * 50;
                 document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2} kg`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
