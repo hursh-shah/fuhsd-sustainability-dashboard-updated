@@ -751,17 +751,26 @@
                 }
             });
 
-            var total_emissions = 3692273.4600000004;
+            var total_emissions = 8738286.81;
             var ev_total_equivalent = 16511.23387487;
+            var hvac_emissions = 0.273*total_emissions
+            var lighting = 0.255*total_emissions
+            var electric = 0.063*total_emissions
+            var refrigeration = 0.041*total_emissions // probably more due to cafeteria
+            var cooking = 0.02*total_emissions
+            var water_heating = 0.068*total_emissions // probably more for us, check with Mr. Silveira
+
+
+            var other_part_of_chart = total_emissions-(hvac_emissions+ev_total_equivalent+lighting+electric);
             let ctx3 = document.getElementById('usageChart').getContext('2d');
             new Chart(ctx3, {
                 type: 'pie',
                 data: {
-                    labels: ["HVAC", "Lighting", "EV Charging", "Other"],
+                    labels: ["HVAC", "Lighting", "Electronics", "Refrigeration","Cooking","Water heating","EV Charging", "Other"],
                     datasets: [{
                         label: "Amount of CO2e",
-                        backgroundColor: ["#2e7d32", "#3e95cd", "#8e24aa", "#e8c3b9", "#c45850"],
-                        data: [2478, 5267, 734, 784, 433]
+                        backgroundColor: ['#2e7d32','#8e24aa','#f39c12','#e74c3c','#ffc0cb','#3498db', '#666666','#ff66f5'],
+                        data: [hvac_emissions, lighting, electric, refrigeration, cooking, water_heating,other_part_of_chart, ev_total_equivalent]
                     }]
                 },
                 options: {
