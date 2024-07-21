@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -171,7 +173,7 @@
         <div class="w-1/4 mx-auto my-auto">
             <div class="mb-8">
                 <h2 class="text-7xl font-bold text-dark-grey mx-auto">100.4mt</h2>
-                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
+                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the <span class="font-bold">past year</span>, calculated
                     from energy bill data</p>
             </div>
             <p class="text-xl text-dark-grey my-3">The data gathered from our energy bills indicates our current
@@ -179,8 +181,22 @@
                 to enhance our energy efficiency and reduce overall emissions. </p>
             <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
         </div>
-        <div class="w-7/12 mx-auto">
-            <canvas id="myChart"></canvas>
+        <div class="w-1/4 mx-auto my-auto"> <!--trees-->
+            <div class="mb-8">
+                <div id="treeAnim"></div>
+                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 100.4 trees</h2>
+                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
+                    from energy bill data</p>
+            </div>
+            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
+        </div>
+        <div class="w-1/4 mx-auto my-auto"> <!--homes-->
+            <div class="mb-8">
+                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 100.4 homes</h2>
+                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
+                    from energy bill data</p>
+            </div>
+            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
         </div>
     </div>
 
@@ -234,6 +250,10 @@
                 <canvas id="usageChart"></canvas>
             </div>
         </div>
+    </div>
+
+    <div class="section reveal">
+        <h1 class="text-8xl font-bold">fdsafdas</h1>
     </div>
 
     <footer class="footer bg-base-200 text-base-content p-10">
@@ -324,6 +344,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
+
             const montaVistaData = [
                 { "Date": "8/9/2022", "Total CO2 Emissions": 9722.79 },
                 { "Date": "9/8/2022", "Total CO2 Emissions": 28992.69 },
@@ -751,26 +772,18 @@
                 }
             });
 
-            var total_emissions = 8738286.81;
-            var ev_total_equivalent = 16511.23387487;
-            var hvac_emissions = 0.273*total_emissions
-            var lighting = 0.255*total_emissions
-            var electric = 0.063*total_emissions
-            var refrigeration = 0.041*total_emissions // probably more due to cafeteria
-            var cooking = 0.02*total_emissions
-            var water_heating = 0.068*total_emissions // probably more for us, check with Mr. Silveira
 
-
-            var other_part_of_chart = total_emissions-(hvac_emissions+ev_total_equivalent+lighting+electric);
             let ctx3 = document.getElementById('usageChart').getContext('2d');
             new Chart(ctx3, {
                 type: 'pie',
                 data: {
-                    labels: ["HVAC", "Lighting", "Electronics", "Refrigeration","Cooking","Water heating","EV Charging", "Other"],
+                    labels: ["HVAC", "Lighting", "Electronics", "Refrigeration","Cooking","Water heating", "Other"],
                     datasets: [{
-                        label: "Amount of CO2e",
+                        label: "Percentage:",
                         backgroundColor: ['#2e7d32','#8e24aa','#f39c12','#e74c3c','#ffc0cb','#3498db', '#666666','#ff66f5'],
-                        data: [hvac_emissions, lighting, electric, refrigeration, cooking, water_heating,other_part_of_chart, ev_total_equivalent]
+                        data: [33.3, 25.5, 9.8, 6.3, 6.6, 3.2, 2,13.2]
+                        // extra 5.5: 3 put into water heating (pools) and 2.5 put into refrigeration (cafeteria)
+                        // we really need to consider replacing/removing this feature unless we can get some better data :(
                     }]
                 },
                 options: {
