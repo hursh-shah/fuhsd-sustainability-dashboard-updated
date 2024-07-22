@@ -135,19 +135,41 @@
         .visible {
             display: block;
         }
+
+        .navbar {
+            background-color: #f5f5f7;
+            color: #2e7d32;
+            font-weight: bold;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: none;
+        }
+
+        .navbar.visible {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: #2e7d32;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
-    <nav id="navbar" class="bg-light-grey fixed top-0 left-0 right-0 flex justify-center hidden z-50">
-        <ul class="flex space-x-4 py-4">
-            <li><a href="#hvac-section" class="text-green text-xl">HVAC</a></li>
-            <li><a href="#quick-stats-section" class="text-green text-xl">Quick Stats</a></li>
-            <li><a href="#energy-bar-chart-section" class="text-green text-xl">Energy Bar Chart</a></li>
-            <li><a href="#co2-chart-section" class="text-green text-xl">CO2 Emissions Chart</a></li>
-            <li><a href="#usage-chart-section" class="text-green text-xl">Usage Chart</a></li>
-        </ul>
+    <nav id="navbar" class="navbar">
+        <a class="nav-link" href="#hvac-section">HVAC</a>
+        <a class="nav-link" href="#quick-stats-section">Quick Stats</a>
+        <a class="nav-link" href="#energy-bar-chart-section">Energy Bar Chart</a>
+        <a class="nav-link" href="#co2-chart-section">CO2 Emissions</a>
+        <a class="nav-link" href="#usage-chart-section">Usage Chart</a>
     </nav>
 
     <!-- Big Heading -->
@@ -237,8 +259,7 @@
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleCupertino">CHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleFremont">FHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleLynbrook">LHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey"
-                    id="toggleDistrictOffice">District-Office</button>
+                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleDistrictOffice">District-Office</button>
 
             </div>
             <canvas id="co2Chart"></canvas>
@@ -840,23 +861,23 @@
             }, 1000);
             window.addEventListener('scroll', function () {
                 if (window.scrollY > window.innerHeight) {
-                    mainTitle.classList.add('fade-out');
                     staticTitle.classList.add('visible');
+                    mainTitle.style.display = 'none';
                 } else {
-                    mainTitle.classList.remove('fade-out');
                     staticTitle.classList.remove('visible');
+                    mainTitle.style.display = 'block';
                 }
             });
         });
 
+        // Show navbar once scrolled to the bottom
         window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                navbar.classList.remove('hidden');
-            } else {
-                navbar.classList.add('hidden');
+                navbar.classList.add('visible');
             }
         });
+
     </script>
 </body>
 
