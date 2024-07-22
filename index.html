@@ -320,12 +320,12 @@
                 autoplay: true,
                 path: 'https://lottie.host/c16fd91e-2419-4eb1-9540-bb352913bd6c/x92LxRS0s8.json'
             });
-
-            let isSummer = true;
-            let temperature = isSummer ? 72 : 68;
+    
+            let isSummer = false;
+            let temperature = 68;
             let startY = 0;
             let moving = false;
-
+    
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
                 const extraCO2 = Math.abs(temperature - (isSummer ? 72 : 68)) * 50;
@@ -333,7 +333,7 @@
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
-
+    
             function mapTemperatureToFrame(temp) {
                 if (isSummer) {
                     return 16 + (72 - temp) * 3;
@@ -341,14 +341,14 @@
                     return (temp - 68) * 4;
                 }
             }
-
+    
             const thermometer = document.getElementById('lottieThermometer');
             thermometer.addEventListener('mousedown', function (event) {
                 startY = event.clientY;
                 moving = true;
                 event.preventDefault();
             });
-
+    
             document.addEventListener('mousemove', function (event) {
                 if (moving) {
                     const diff = startY - event.clientY;
@@ -360,18 +360,19 @@
                     }
                 }
             });
-
+    
             document.addEventListener('mouseup', function () {
                 moving = false;
             });
-
+    
+            document.getElementById('switchSeason').textContent = 'Switch to Summer';
             document.getElementById('switchSeason').addEventListener('click', function () {
                 isSummer = !isSummer;
                 temperature = isSummer ? 72 : 68;
                 this.textContent = isSummer ? 'Switch to Winter' : 'Switch to Summer';
                 updateTemperatureDisplay();
             });
-
+    
             updateTemperatureDisplay();
         });
 
