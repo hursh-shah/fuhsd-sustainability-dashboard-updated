@@ -130,6 +130,9 @@
             font-weight: bold;
             display: none;
             color: #2e7d32;
+            background-color: #f5f5f7;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
 
         .visible {
@@ -140,14 +143,14 @@
 
 <body>
     <!-- Navigation Bar -->
-    <div class="fixed w-full bg-light-grey z-50">
-        <div class="flex justify-center py-4 space-x-8 text-green">
-            <a href="#hvac-section" class="hover:underline">HVAC Impact</a>
-            <a href="#quick-stats-section" class="hover:underline">Quick Stats</a>
-            <a href="#energy-bar-chart-section" class="hover:underline">Energy Sources</a>
-            <a href="#co2-emissions-chart-section" class="hover:underline">CO2 Emissions</a>
-            <a href="#usage-chart-section" class="hover:underline">Footprint</a>
-        </div>
+    <div id="navbar" class="bg-light-grey p-4 fixed top-0 left-0 w-full z-10 hidden">
+        <nav class="flex justify-center space-x-4">
+            <a href="#hvac-section" class="text-green text-2xl">HVAC</a>
+            <a href="#quick-stats-section" class="text-green text-2xl">Quick Stats</a>
+            <a href="#energy-bar-chart-section" class="text-green text-2xl">Energy Sources</a>
+            <a href="#co2-chart-section" class="text-green text-2xl">CO2 Emissions</a>
+            <a href="#usage-chart-section" class="text-green text-2xl">Usage Breakdown</a>
+        </nav>
     </div>
 
     <!-- Big Heading -->
@@ -226,7 +229,7 @@
     </div>
 
     <!-- CO2 Emissions Chart Section -->
-    <div id="co2-emissions-chart-section" class="flex flex-row section reveal">
+    <div id="co2-chart-section" class="flex flex-row section reveal">
         <div class="w-4/5 mx-auto">
             <h2 class="text-2xl font-bold text-dark-grey my-6">Our CO2e emissions from energy use over time, by school
             </h2>
@@ -237,8 +240,7 @@
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleCupertino">CHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleFremont">FHS</button>
                 <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleLynbrook">LHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey"
-                    id="toggleDistrictOffice">District-Office</button>
+                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleDistrictOffice">District-Office</button>
 
             </div>
             <canvas id="co2Chart"></canvas>
@@ -261,6 +263,10 @@
                 <canvas id="usageChart"></canvas>
             </div>
         </div>
+    </div>
+
+    <div class="section reveal">
+        <h1 class="text-8xl font-bold">fdsafdas</h1>
     </div>
 
     <footer class="footer bg-base-200 text-base-content p-10">
@@ -831,14 +837,15 @@
         window.addEventListener('load', function () {
             const mainTitle = document.getElementById('main-title');
             const staticTitle = document.getElementById('static-title');
-            const docHeight = document.documentElement.scrollHeight;
-            const windowHeight = window.innerHeight;
+            const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', function () {
-                if (window.scrollY + windowHeight >= docHeight) {
+                if (window.scrollY > window.innerHeight) {
                     staticTitle.classList.add('visible');
+                    navbar.classList.remove('hidden');
                     mainTitle.style.display = 'none';
                 } else {
                     staticTitle.classList.remove('visible');
+                    navbar.classList.add('hidden');
                     mainTitle.style.display = 'block';
                 }
             });
