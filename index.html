@@ -139,6 +139,17 @@
 </head>
 
 <body>
+    <!-- Navigation Bar -->
+    <div class="fixed w-full bg-light-grey z-50">
+        <div class="flex justify-center py-4 space-x-8 text-green">
+            <a href="#hvac-section" class="hover:underline">HVAC Impact</a>
+            <a href="#quick-stats-section" class="hover:underline">Quick Stats</a>
+            <a href="#energy-bar-chart-section" class="hover:underline">Energy Sources</a>
+            <a href="#co2-emissions-chart-section" class="hover:underline">CO2 Emissions</a>
+            <a href="#usage-chart-section" class="hover:underline">Footprint</a>
+        </div>
+    </div>
+
     <!-- Big Heading -->
     <div class="flex justify-center items-center h-screen bg-light-grey relative">
         <h1 id="main-title" class="text-9xl font-bold text-green fade-in">Heating and cooling is <br> kind of a big
@@ -149,7 +160,7 @@
     <div id="static-title" class="static-title">FUHSD Sustainability</div>
 
     <!-- HVAC Section -->
-    <div class="thermostat-container flex flex-row m-20 space-x-6 reveal hvac-section">
+    <div id="hvac-section" class="thermostat-container flex flex-row m-20 space-x-6 reveal hvac-section">
         <div class="w-7/12">
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">40%</span> of our energy
@@ -169,7 +180,7 @@
     </div>
 
     <!-- Quick Stats Section -->
-    <div class="flex flex-row section reveal">
+    <div id="quick-stats-section" class="flex flex-row section reveal">
         <div class="w-1/4 mx-auto my-auto">
             <div class="mb-8">
                 <h2 class="text-7xl font-bold text-dark-grey mx-auto">100.4mt</h2>
@@ -201,7 +212,7 @@
     </div>
 
     <!-- Energy Bar Chart Section -->
-    <div class="flex flex-row section reveal">
+    <div id="energy-bar-chart-section" class="flex flex-row section reveal">
         <div class="w-7/12 mx-auto">
             <canvas id="energyBarChart"></canvas>
         </div>
@@ -215,7 +226,7 @@
     </div>
 
     <!-- CO2 Emissions Chart Section -->
-    <div id="chart" class="flex flex-row section reveal">
+    <div id="co2-emissions-chart-section" class="flex flex-row section reveal">
         <div class="w-4/5 mx-auto">
             <h2 class="text-2xl font-bold text-dark-grey my-6">Our CO2e emissions from energy use over time, by school
             </h2>
@@ -250,10 +261,6 @@
                 <canvas id="usageChart"></canvas>
             </div>
         </div>
-    </div>
-
-    <div class="section reveal">
-        <h1 class="text-8xl font-bold">fdsafdas</h1>
     </div>
 
     <footer class="footer bg-base-200 text-base-content p-10">
@@ -824,11 +831,10 @@
         window.addEventListener('load', function () {
             const mainTitle = document.getElementById('main-title');
             const staticTitle = document.getElementById('static-title');
-            setTimeout(() => {
-                window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-            }, 1000);
+            const docHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
             window.addEventListener('scroll', function () {
-                if (window.scrollY > window.innerHeight) {
+                if (window.scrollY + windowHeight >= docHeight) {
                     staticTitle.classList.add('visible');
                     mainTitle.style.display = 'none';
                 } else {
