@@ -89,7 +89,7 @@
         }
 
         .section {
-            margin: 450px 0;
+            margin: 560px 0;
         }
 
         .hvac-section {
@@ -772,11 +772,11 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const bar_data = [
-                { category: 'Monta Vista', kwh: 70 },
-                { category: 'Homestead', kwh: 40 },
-                { category: 'Lynbrook', kwh: 50 },
-                { category: 'Cupertino', kwh: 30 },
-                { category: 'Fremont', kwh: 36 }
+                { category: 'Monta Vista', kwh: 70, color: '#2e7d32' },
+                { category: 'Homestead', kwh: 40, color: '#8e24aa' },
+                { category: 'Lynbrook', kwh: 50, color: '#ffc0cb' },
+                { category: 'Cupertino', kwh: 30, color: '#f39c12' },
+                { category: 'Fremont', kwh: 36, color: '#e74c3c' }
             ];
 
             let ctx2 = document.getElementById('energyBarChart').getContext('2d');
@@ -787,7 +787,7 @@
                     datasets: [{
                         label: 'kWh used, by school',
                         data: bar_data.map(row => row.kwh),
-                        backgroundColor: '#2e7d32'
+                        backgroundColor: bar_data.map(row => row.color)
                     }]
                 },
                 options: {
