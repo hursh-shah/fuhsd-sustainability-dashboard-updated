@@ -326,10 +326,19 @@
             let startY = 0;
             let moving = false;
     
+            // HVAC Emissions data per temperature
+            const hvacEmissionsPerTemp = {
+                68: 2334600.41,
+                69: 2546836.82,
+                70: 2759073.22,
+                71: 2971309.62,
+                72: 3183546.02
+            };
+    
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
-                const extraCO2 = Math.abs(temperature - (isSummer ? 72 : 68)) * 50;
-                document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2} kg`;
+                const extraCO2 = hvacEmissionsPerTemp[temperature] - hvacEmissionsPerTemp[68];
+                document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2.toFixed(2)} kg`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
