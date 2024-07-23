@@ -328,33 +328,34 @@
     
             // Constants
             const CO2_PER_HOME_YEARLY = 24184.71; // CO2 emissions per home in kg per year
+            const CO2_PER_TREE_YEARLY = 48; // CO2 offset per tree in kg per year
     
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
                 summer: {
-                    68: 2334600.41,
-                    69: 2546836.82,
-                    70: 2759073.22,
-                    71: 2971309.62,
-                    72: 3183546.02
+                    68: { emissions: 2334600, homes_powered: 202, trees_required: 48638 },
+                    69: { emissions: 2546837, homes_powered: 220, trees_required: 53059 },
+                    70: { emissions: 2759073, homes_powered: 239, trees_required: 57481 },
+                    71: { emissions: 2971310, homes_powered: 257, trees_required: 61902 },
+                    72: { emissions: 3183546, homes_powered: 275, trees_required: 66324 }
                 },
                 winter: {
-                    68: 2334600.41,
-                    69: 2122363.01,
-                    70: 1910125.61,
-                    71: 1697888.21,
-                    72: 1485650.81
+                    68: { emissions: 2334600, homes_powered: 202, trees_required: 48638 },
+                    69: { emissions: 2122363, homes_powered: 184, trees_required: 44216 },
+                    70: { emissions: 1910126, homes_powered: 165, trees_required: 39794 },
+                    71: { emissions: 1697888, homes_powered: 147, trees_required: 35373 },
+                    72: { emissions: 1485651, homes_powered: 128, trees_required: 30951 }
                 }
             };
     
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
                 const optimalTemp = isSummer ? 72 : 68;
-                const currentEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][temperature];
-                const baseEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp];
+                const currentEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][temperature].emissions;
+                const baseEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp].emissions;
                 const extraCO2 = Math.abs(currentEmissions - baseEmissions);
-                const additionalHomesPowered = extraCO2 / CO2_PER_HOME_YEARLY;
-                document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2.toFixed(2)} kg (additional ${additionalHomesPowered.toFixed(2)} homes powered)`;
+                const additionalTreesRequired = extraCO2 / CO2_PER_TREE_YEARLY;
+                document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2.toFixed(2)} kg (additional ${additionalTreesRequired.toFixed(2)} trees required)`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
