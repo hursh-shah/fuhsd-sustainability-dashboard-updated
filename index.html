@@ -319,45 +319,45 @@
                 autoplay: true,
                 path: 'https://lottie.host/c16fd91e-2419-4eb1-9540-bb352913bd6c/x92LxRS0s8.json'
             });
-
+    
             let isSummer = false;
             let temperature = 68;
             let startY = 0;
             let moving = false;
-
+    
             // Constants
-            const CO2_PER_TREE_YEARLY = 48; // CO2 offset per tree in kg per year
-
+            const CO2_PER_TREE_YEARLY = 21.77209; // CO2 offset per tree in kg per year
+    
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
                 summer: {
-                    68: { emissions: 2334600, trees_required: 48600 },
-                    69: { emissions: 2546837, trees_required: 53000 },
-                    70: { emissions: 2759073, trees_required: 57400 },
-                    71: { emissions: 2971310, trees_required: 61900 },
-                    72: { emissions: 3183546, trees_required: 66300 }
+                    68: { emissions: 2_334_600, trees_required: 107_274 },
+                    69: { emissions: 2_546_837, trees_required: 116_928 },
+                    70: { emissions: 2_759_073, trees_required: 126_582 },
+                    71: { emissions: 2_971_310, trees_required: 136_236 },
+                    72: { emissions: 3_183_546, trees_required: 145_890 }
                 },
                 winter: {
-                    68: { emissions: 2334600, trees_required: 48600 },
-                    69: { emissions: 2122363, trees_required: 44200 },
-                    70: { emissions: 1910126, trees_required: 39800 },
-                    71: { emissions: 1697888, trees_required: 35400 },
-                    72: { emissions: 1485651, trees_required: 31000 }
+                    68: { emissions: 2_334_600, trees_required: 107_274 },
+                    69: { emissions: 2_122_363, trees_required: 97_620 },
+                    70: { emissions: 1_910_126, trees_required: 87_966 },
+                    71: { emissions: 1_697_888, trees_required: 78_312 },
+                    72: { emissions: 1_485_651, trees_required: 68_658 }
                 }
             };
-
+    
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
                 const optimalTemp = isSummer ? 72 : 68;
                 const currentEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][temperature].emissions;
                 const baseEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp].emissions;
                 const extraCO2 = Math.abs(currentEmissions - baseEmissions);
-                const treesRequired = Math.round(extraCO2 / CO2_PER_TREE_YEARLY);
-                document.getElementById('co2Impact').textContent = `Trees Saved: ${treesRequired}`;
+                const treesRequired = Math.round((extraCO2 / CO2_PER_TREE_YEARLY) / 100) * 100; // Rounded to the nearest hundred
+                document.getElementById('co2Impact').textContent = `Trees Saved: ${treesRequired.toLocaleString()}`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
-
+    
             function mapTemperatureToFrame(temp) {
                 if (isSummer) {
                     return 16 + (72 - temp) * 3;
@@ -365,14 +365,14 @@
                     return (temp - 68) * 4;
                 }
             }
-
+    
             const thermometer = document.getElementById('lottieThermometer');
             thermometer.addEventListener('mousedown', function (event) {
                 startY = event.clientY;
                 moving = true;
                 event.preventDefault();
             });
-
+    
             document.addEventListener('mousemove', function (event) {
                 if (moving) {
                     const diff = startY - event.clientY;
@@ -384,11 +384,11 @@
                     }
                 }
             });
-
+    
             document.addEventListener('mouseup', function () {
                 moving = false;
             });
-
+    
             document.getElementById('switchSeason').textContent = 'Switch to Summer';
             document.getElementById('switchSeason').addEventListener('click', function () {
                 isSummer = !isSummer;
@@ -396,7 +396,7 @@
                 this.textContent = isSummer ? 'Switch to Winter' : 'Switch to Summer';
                 updateTemperatureDisplay();
             });
-
+    
             updateTemperatureDisplay();
         });
 
