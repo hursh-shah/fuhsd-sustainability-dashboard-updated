@@ -70,7 +70,6 @@
         }
 
         @keyframes bounce {
-
             0%,
             20%,
             50%,
@@ -187,12 +186,12 @@
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">33%</span> of our energy
                     usage.</h1>
-                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to saving 4000
+                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to saving thousands of
                     trees.</p>
                 <h3 class="font-bold text-dark-grey">Slide the thermometer up or down a few notches to see its carbon
                     impact!</h3>
                 <p id="temperatureDisplay" class="text-2xl font-semibold text-dark-grey">Temperature: 72°F</p>
-                <p id="co2Impact" class="text-2xl font-bold text-green">Trees saved: 0</p>
+                <p id="co2Impact" class="text-5xl font-bold text-green">Trees saved: 0</p>
                 <button class="btn bg-green-300 text-dark-grey" id="switchSeason">Switch to Winter</button>
             </article>
         </div>
@@ -205,7 +204,7 @@
     <div id="quick-stats-section" class="flex flex-row section reveal">
         <div class="w-1/4 mx-auto my-auto">
             <div class="mb-8">
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">100.4mt</h2>
+                <h2 class="text-7xl font-bold text-dark-grey mx-auto">5801 mt</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the <span class="font-bold">past year</span>, calculated
                     from energy bill data</p>
             </div>
@@ -217,7 +216,7 @@
         <div class="w-1/4 mx-auto my-auto"> <!--trees-->
             <div class="mb-8">
                 <div id="treeAnim"></div>
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 100.4 trees</h2>
+                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 325,000 trees</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
@@ -225,7 +224,7 @@
         </div>
         <div class="w-1/4 mx-auto my-auto"> <!--homes-->
             <div class="mb-8">
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 100.4 homes</h2>
+                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 645 homes</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
@@ -320,33 +319,33 @@
                 autoplay: true,
                 path: 'https://lottie.host/c16fd91e-2419-4eb1-9540-bb352913bd6c/x92LxRS0s8.json'
             });
-    
+
             let isSummer = false;
             let temperature = 68;
             let startY = 0;
             let moving = false;
-    
+
             // Constants
             const CO2_PER_TREE_YEARLY = 48; // CO2 offset per tree in kg per year
-    
+
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
                 summer: {
-                    68: { emissions: 2334600, trees_required: 48638 },
-                    69: { emissions: 2546837, trees_required: 53059 },
-                    70: { emissions: 2759073, trees_required: 57481 },
-                    71: { emissions: 2971310, trees_required: 61902 },
-                    72: { emissions: 3183546, trees_required: 66324 }
+                    68: { emissions: 2334600, trees_required: 48600 },
+                    69: { emissions: 2546837, trees_required: 53000 },
+                    70: { emissions: 2759073, trees_required: 57400 },
+                    71: { emissions: 2971310, trees_required: 61900 },
+                    72: { emissions: 3183546, trees_required: 66300 }
                 },
                 winter: {
-                    68: { emissions: 2334600, trees_required: 48638 },
-                    69: { emissions: 2122363, trees_required: 44216 },
-                    70: { emissions: 1910126, trees_required: 39794 },
-                    71: { emissions: 1697888, trees_required: 35373 },
-                    72: { emissions: 1485651, trees_required: 30951 }
+                    68: { emissions: 2334600, trees_required: 48600 },
+                    69: { emissions: 2122363, trees_required: 44200 },
+                    70: { emissions: 1910126, trees_required: 39800 },
+                    71: { emissions: 1697888, trees_required: 35400 },
+                    72: { emissions: 1485651, trees_required: 31000 }
                 }
             };
-    
+
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
                 const optimalTemp = isSummer ? 72 : 68;
@@ -358,7 +357,7 @@
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
-    
+
             function mapTemperatureToFrame(temp) {
                 if (isSummer) {
                     return 16 + (72 - temp) * 3;
@@ -366,14 +365,14 @@
                     return (temp - 68) * 4;
                 }
             }
-    
+
             const thermometer = document.getElementById('lottieThermometer');
             thermometer.addEventListener('mousedown', function (event) {
                 startY = event.clientY;
                 moving = true;
                 event.preventDefault();
             });
-    
+
             document.addEventListener('mousemove', function (event) {
                 if (moving) {
                     const diff = startY - event.clientY;
@@ -385,11 +384,11 @@
                     }
                 }
             });
-    
+
             document.addEventListener('mouseup', function () {
                 moving = false;
             });
-    
+
             document.getElementById('switchSeason').textContent = 'Switch to Summer';
             document.getElementById('switchSeason').addEventListener('click', function () {
                 isSummer = !isSummer;
@@ -397,7 +396,7 @@
                 this.textContent = isSummer ? 'Switch to Winter' : 'Switch to Summer';
                 updateTemperatureDisplay();
             });
-    
+
             updateTemperatureDisplay();
         });
 
@@ -732,7 +731,7 @@
                         { label: 'HHS', data: homesteadEmissions, borderColor: '#8e24aa', backgroundColor: '#8e24aa', hidden: true },
                         { label: 'Cupertino', data: cupertinoEmissions, borderColor: '#f39c12', backgroundColor: '#f39c12', hidden: true },
                         { label: 'Fremont', data: fremontEmissions, borderColor: '#e74c3c', backgroundColor: '#e74c3c', hidden: true },
-                        { label: 'Lynbrook', data: lynbrookEmissions, borderColor: '#ffcocb', backgroundColor: '#ffcocb', hidden: true },
+                        { label: 'Lynbrook', data: lynbrookEmissions, borderColor: '#ffc0cb', backgroundColor: '#ffc0cb', hidden: true },
                         { label: 'District Office', data: districtOfficeEmissions, borderColor: '#3498db', backgroundColor: '#3498db', hidden: true }
 
                     ]
