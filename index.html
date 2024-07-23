@@ -450,12 +450,12 @@
             ];
 
             const districtOfficeData = [
-                { "Date": " 1/19/2023", "CO2": 27959.88 },
-                { "Date": " 2/17/2023", "CO2": 27975.51 },
-                { "Date": " 3/21/2023", "CO2": 27432.24 },
-                { "Date": " 4/20/2023", "CO2": 24070.26 },
-                { "Date": " 5/19/2023", "CO2": 19851.54 },
-                { "Date": " 6/20/2023", "CO2": 17866.35 }
+                { "Date": " 1/19/2023", "CO2 Emissions": 27959.88 },
+                { "Date": " 2/17/2023", "CO2 Emissions": 27975.51 },
+                { "Date": " 3/21/2023", "CO2 Emissions": 27432.24 },
+                { "Date": " 4/20/2023", "CO2 Emissions": 24070.26 },
+                { "Date": " 5/19/2023", "CO2 Emissions": 19851.54 },
+                { "Date": " 6/20/2023", "CO2 Emissions": 17866.35 }
             ];
 
 
@@ -496,7 +496,7 @@
             let cupertinoEmissions = cupertinoData.map(data => data['C02 Emissions']);
             let fremontEmissions = fremontData.map(data => data['C02 Emissions']);
             let lynbrookEmissions = lynbrookData.map(data => data['C02 Emissions']);
-            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2']);
+            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2 Emissions']);
 
 
             let ctx = document.getElementById('co2Chart').getContext('2d');
