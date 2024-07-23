@@ -187,12 +187,12 @@
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">33%</span> of our energy
                     usage.</h1>
-                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to powering 1000
-                    homes.</p>
+                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to saving 4000
+                    trees.</p>
                 <h3 class="font-bold text-dark-grey">Slide the thermometer up or down a few notches to see its carbon
                     impact!</h3>
                 <p id="temperatureDisplay" class="text-2xl font-semibold text-dark-grey">Temperature: 72°F</p>
-                <p id="co2Impact" class="text-2xl font-bold text-green">Extra CO2: 0 kg</p>
+                <p id="co2Impact" class="text-2xl font-bold text-green">Trees saved: 0</p>
                 <button class="btn bg-green-300 text-dark-grey" id="switchSeason">Switch to Winter</button>
             </article>
         </div>
@@ -327,24 +327,23 @@
             let moving = false;
     
             // Constants
-            const CO2_PER_HOME_YEARLY = 24184.71; // CO2 emissions per home in kg per year
             const CO2_PER_TREE_YEARLY = 48; // CO2 offset per tree in kg per year
     
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
                 summer: {
-                    68: { emissions: 2334600, homes_powered: 202, trees_required: 48638 },
-                    69: { emissions: 2546837, homes_powered: 220, trees_required: 53059 },
-                    70: { emissions: 2759073, homes_powered: 239, trees_required: 57481 },
-                    71: { emissions: 2971310, homes_powered: 257, trees_required: 61902 },
-                    72: { emissions: 3183546, homes_powered: 275, trees_required: 66324 }
+                    68: { emissions: 2334600, trees_required: 48638 },
+                    69: { emissions: 2546837, trees_required: 53059 },
+                    70: { emissions: 2759073, trees_required: 57481 },
+                    71: { emissions: 2971310, trees_required: 61902 },
+                    72: { emissions: 3183546, trees_required: 66324 }
                 },
                 winter: {
-                    68: { emissions: 2334600, homes_powered: 202, trees_required: 48638 },
-                    69: { emissions: 2122363, homes_powered: 184, trees_required: 44216 },
-                    70: { emissions: 1910126, homes_powered: 165, trees_required: 39794 },
-                    71: { emissions: 1697888, homes_powered: 147, trees_required: 35373 },
-                    72: { emissions: 1485651, homes_powered: 128, trees_required: 30951 }
+                    68: { emissions: 2334600, trees_required: 48638 },
+                    69: { emissions: 2122363, trees_required: 44216 },
+                    70: { emissions: 1910126, trees_required: 39794 },
+                    71: { emissions: 1697888, trees_required: 35373 },
+                    72: { emissions: 1485651, trees_required: 30951 }
                 }
             };
     
@@ -354,8 +353,8 @@
                 const currentEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][temperature].emissions;
                 const baseEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp].emissions;
                 const extraCO2 = Math.abs(currentEmissions - baseEmissions);
-                const additionalTreesRequired = extraCO2 / CO2_PER_TREE_YEARLY;
-                document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2.toFixed(2)} kg (additional ${additionalTreesRequired.toFixed(2)} trees required)`;
+                const treesRequired = Math.round(extraCO2 / CO2_PER_TREE_YEARLY);
+                document.getElementById('co2Impact').textContent = `Trees Saved: ${treesRequired}`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
