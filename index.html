@@ -328,16 +328,26 @@
     
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
-                68: 2334600.41,
-                69: 2546836.82,
-                70: 2759073.22,
-                71: 2971309.62,
-                72: 3183546.02
+                summer: {
+                    68: 2334600.41,
+                    69: 2546836.82,
+                    70: 2759073.22,
+                    71: 2971309.62,
+                    72: 3183546.02
+                },
+                winter: {
+                    68: 2334600.41,
+                    69: 2122363.01,
+                    70: 1910125.61,
+                    71: 1697888.21,
+                    72: 1485650.81
+                }
             };
     
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
-                const extraCO2 = hvacEmissionsPerTemp[temperature] - hvacEmissionsPerTemp[68];
+                const optimalTemp = isSummer ? 72 : 68;
+                const extraCO2 = Math.abs(hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][temperature] - hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp]);
                 document.getElementById('co2Impact').textContent = `Extra CO2: ${extraCO2.toFixed(2)} kg`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
