@@ -172,16 +172,23 @@
     </nav>
 
     <!-- Big Heading -->
-    <div class="flex justify-center items-center h-screen bg-light-grey relative">
-        <h1 id="main-title" class="text-9xl font-bold text-green fade-in">Heating and cooling is <br> kind of a big
-            deal.</h1>
-        <div class="arrow text-green">↓</div>
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content text-center">
+          <div class="max-w-lg">
+            <h1 class="text-6xl font-bold">FUHSD Sustainability Data Dashboard</h1>
+            <p class="py-6">
+              This is a snapshot of FUHSD's environmental impact, analyzing real FUHSD data for the <span class="text-bold">2022-2023</span> school year. Scroll through to find interactives, dynamic charts, and visualizations of where we are as a district.
+            </p>
+            <button class="btn btn-primary" onclick="scrollDown(5)">Get Started</button>
+          </div>
+        </div>
+            <div class="arrow text-green">↓</div>
     </div>
 
     <div id="static-title" class="static-title">FUHSD Sustainability</div>
 
     <!-- HVAC Section -->
-    <div id="hvac-section" class="thermostat-container flex flex-row m-20 space-x-6 reveal hvac-section">
+    <div id="hvac-section" class="thermostat-container flex flex-row mx-20 my-10 space-x-6 reveal hvac-section">
         <div class="w-7/12">
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">33%</span> of our energy
@@ -211,7 +218,7 @@
             <p class="text-xl text-dark-grey my-3">The data gathered from our energy bills indicates our current
                 consumption trends and areas where we can improve. By analyzing these figures, we can devise strategies
                 to enhance our energy efficiency and reduce overall emissions. </p>
-            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
+            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
         <div class="w-1/4 mx-auto my-auto"> <!--trees-->
             <div class="mb-8">
@@ -220,7 +227,7 @@
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
-            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
+            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
         <div class="w-1/4 mx-auto my-auto"> <!--homes-->
             <div class="mb-8">
@@ -228,7 +235,7 @@
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
-            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
+            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
     </div>
 
@@ -242,7 +249,7 @@
             <p class="text-xl text-dark-grey my-3">Understanding the sources of our energy is crucial for making
                 informed decisions about our consumption and sustainability practices. By knowing the origins of our
                 energy, we can better appreciate the environmental impacts of our choices. </p>
-            <a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>
+            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
     </div>
 
@@ -283,6 +290,27 @@
         </div>
     </div>
 
+    <div id="ev-section" class="flex flex-row mx-20 mb-20 space-x-6 reveal">
+        <div id="ev_sliders" class="m-auto w-1/2">
+            <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label"></span></h2>
+            <input id="charger_slider" type="range" min="4" max="20" value="6" class="range w-2/3" oninput="recalculate_metrics()"/> <!--arbitrary default for right now-->
+            <p class="text-3xl" id="lightning_icontainer">&#9889;&#9889;</p>
+            <h2 class="font-medium my-5 text-2xl text-blue-600">Hours occupied: <span id="hours_label"></span></h2>
+            <input id="occupancy_slider" type="range" min="0" max="24" value="8" class="range w-2/3" oninput="recalculate_metrics()" />
+            <p class="text-3xl" id="clock_icontainer"></p>
+        </div>
+        <div class="w-7/12">
+            <article class="prose">
+                <h1 class="text-dark-grey">Our path forward: <span class="text-orange-400">electrification</span></h1>
+                <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on vehicle emissions.</p>
+                <h3 class="font-bold text-dark-grey">Slide the charger and occupancy sliders to see how our EV infrastructure is making a difference!</h3>
+                <p class="text-2xl font-semibold text-dark-grey">Energy provided: <span id="kwh_produced"></span>kWh</p>
+                <p class="text-5xl font-bold text-green">GHGs avoided: <span id="ghgs_avoided"></span>lbs</p>
+            </article>
+        </div>
+    </div>
+
+
     <footer class="footer bg-base-200 text-base-content p-10">
         <aside>
             <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
@@ -307,6 +335,46 @@
         </nav>
     </footer>
     <script>
+        // functions for EV interactive (scaffolding for now, will get numbers & update)
+        function recalculate_metrics(){
+            var numChargers = document.getElementById('charger_slider').value
+            document.getElementById("charger_label").innerHTML = numChargers;
+            numChargers = Number(numChargers);
+            updateChargerIcons(numChargers);
+            var occupiedHours = (document.getElementById('occupancy_slider').value)
+            document.getElementById("hours_label").innerHTML = occupiedHours;
+            occupiedHours = Number(occupiedHours)
+            updateClockIcons(occupiedHours);
+            var kwhval = numChargers + occupiedHours; //TODO: add EV to KWH formula
+            var ghgval = numChargers - occupiedHours; //TODO: add KWH to GHG formula
+            update_ev_numbers(kwhval, ghgval)
+        }
+
+        function updateChargerIcons(num){
+            var n = Number(num)/4 //extra cast just in case
+            var parent_div = document.getElementById('lightning_icontainer');
+            parent_div.textContent = ""; // clear the icons
+            for (let i=0;i<n;i++){
+                parent_div.innerHTML += "&#9889;"
+            }
+        }
+
+        function updateClockIcons(num){
+            var n = Number(num)/4 //extra cast just in case
+            var parent_div = document.getElementById('clock_icontainer');
+            parent_div.textContent = ""; // clear the icons
+            for (let i=0;i<n;i++){
+                parent_div.innerHTML += "&#128336;"
+            }
+        }
+
+        function update_ev_numbers(kwh, ghgs){
+            document.getElementById('kwh_produced').innerHTML = kwh;
+            document.getElementById('ghgs_avoided').innerHTML = ghgs;
+        }
+        
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const lottieAnimation = lottie.loadAnimation({
                 container: document.getElementById('lottieThermometer'),
@@ -650,14 +718,13 @@
         window.addEventListener("scroll", reveal);
 
         reveal();
-
-        // Auto scroll and fade-out animation for the main title
-        window.addEventListener('load', function () {
+        
+        function scrollDown(wait_time){
             const mainTitle = document.getElementById('main-title');
             const staticTitle = document.getElementById('static-title');
             setTimeout(() => {
                 window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-            }, 1000);
+            }, wait_time);
             window.addEventListener('scroll', function () {
                 if (window.scrollY > window.innerHeight) {
                     staticTitle.classList.add('visible');
@@ -667,7 +734,10 @@
                     mainTitle.style.display = 'block';
                 }
             });
-        });
+        }
+
+        // Auto scroll and fade-out animation for the main title
+        window.addEventListener('load', scrollDown(1000));
 
         // Show navbar once scrolled to the bottom
         window.addEventListener('scroll', function () {
