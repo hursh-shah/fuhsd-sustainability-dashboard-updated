@@ -88,13 +88,9 @@
         }
 
         .section {
-            margin: 560px 0;
+            margin:11rem 5rem;
         }
 
-        .hvac-section {
-            margin-top: 100px;
-            margin-bottom: 1000px;
-        }
 
         .bg-light-grey {
             background-color: #e0e0e0;
@@ -190,7 +186,7 @@
     <div id="static-title" class="static-title">FUHSD Sustainability</div>
 
     <!-- HVAC Section -->
-    <div id="hvac-section" class="thermostat-container flex flex-row mx-20 my-10 space-x-6 reveal hvac-section">
+    <div id="hvac-section" class="section thermostat-container flex flex-row mx-20 my-10 space-x-6 reveal hvac-section">
         <div class="w-7/12">
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">33%</span> of our energy
@@ -210,22 +206,25 @@
     </div>
 
     <!-- Quick Stats Section -->
-    <div id="quick-stats-section" class="flex flex-row section reveal">
+     <div class="section">
+        <article class="prose mx-auto my-10">
+            <h2 class="text-dark-grey text-center">Some quick stats:</h1>
+        </article>
+    <div id="quick-stats-section" class="flex flex-row reveal">
         <div class="w-1/4 mx-auto my-auto">
             <div class="mb-8">
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">7,075 mt</h2>
+                <h2 class="text-6xl font-black text-dark-grey mx-auto">7,075 mt</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the <span class="font-bold">past year</span>, calculated
                     from energy bill data</p>
             </div>
             <p class="text-xl text-dark-grey my-3">The data gathered from our energy bills indicates our current
-                consumption trends and areas where we can improve. By analyzing these figures, we can devise strategies
-                to enhance our energy efficiency and reduce overall emissions. </p>
+                consumption trends and areas where we can improve.</p>
             <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
         <div class="w-1/4 mx-auto my-auto"> <!--trees-->
             <div class="mb-8">
                 <div id="treeAnim"></div>
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 325,000 trees</h2>
+                <h2 class="text-6xl font-black text-dark-grey mx-auto">= 325,000 trees&#127794;</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
@@ -233,12 +232,13 @@
         </div>
         <div class="w-1/4 mx-auto my-auto"> <!--homes-->
             <div class="mb-8">
-                <h2 class="text-7xl font-bold text-dark-grey mx-auto">= 645 homes</h2>
+                <h2 class="text-6xl font-black text-dark-grey mx-auto">= 645 homes&#127968;</h2>
                 <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
                     from energy bill data</p>
             </div>
             <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
+    </div>
     </div>
 
     <!-- Energy Bar Chart Section -->
@@ -256,25 +256,29 @@
     </div>
 
     <!-- CO2 Emissions Chart Section -->
-    <div id="co2-chart-section" class="flex flex-row section reveal m-20">
-        <div class="w-4/5 mx-auto">
-            <h2 class="text-2xl font-bold text-dark-grey my-6">Our CO2e emissions from energy use over time, by school
-            </h2>
-            <div class="inline-flex">
-                <p class="text-l font-medium text-dark-grey my-auto mr-3">Toggle schools:</p>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleMontaVista">MVHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleHomestead">HHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleCupertino">CHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleFremont">FHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleLynbrook">LHS</button>
-                <button class="btn bg-grey-700 text-2xl text-light-grey" id="toggleDistrictOffice">District-Office</button>
+    <div class="section">
+        <div id="co2-chart-section" class="flex flex-row reveal m-20">
+            <div class="w-4/5 mx-auto">
+                <!--<h2 class="text-3xl font-black text-dark-grey my-6">Our impact, over time</h2>-->
+                <article class="prose">
+                    <h1 class="my-8">Our impact, over time</h1>
+                </article>
+                <div class="inline-flex space-x-3">
+                    <p class="text-l font-medium text-dark-grey my-auto mr-3">Toggle schools:</p>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleMontaVista">MVHS</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleHomestead">HHS</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleCupertino">CHS</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleFremont">FHS</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleLynbrook">LHS</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleDistrictOffice">District-Office</button>
 
+                </div>
+                <canvas id="co2Chart"></canvas>
             </div>
-            <canvas id="co2Chart"></canvas>
+            <div class="w-1/5 ml-5 text-lg text-dark-grey my-auto">This chart tracks the <span class="font-bold">CO2e emissions due to energy produced by each school</span> over time.
+                By toggling different schools, you can see how each one contributes to the overall emissions and identify
+                patterns or trends that may inform future energy policies.</div>
         </div>
-        <div class="w-1/5 ml-5 text-lg text-dark-grey">This chart tracks the CO2e emissions from each school over time.
-            By toggling different schools, you can see how each one contributes to the overall emissions and identify
-            patterns or trends that may inform future energy policies.</div>
     </div>
 
     <!-- Usage Chart Section -->
@@ -582,7 +586,7 @@
                 options: {
                     plugins: {
                         legend: {
-                            display: true,
+                            display: false,
                             onClick: null
                         },
                         title: {
