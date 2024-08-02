@@ -299,10 +299,10 @@
     <div id="ev-section" class="flex flex-row mx-20 mb-40 space-x-6 section reveal">
         <div id="ev_sliders" class="m-auto w-1/2">
             <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label"></span></h2>
-            <input id="charger_slider" type="range" min="4" max="20" value="6" class="range w-2/3" oninput="recalculate_metrics()"/> <!--arbitrary default for right now-->
+            <input id="charger_slider" type="range" min="0" max="270" value="120" step="30" class="range w-2/3" oninput="recalculate_metrics()"/> <!--arbitrary default for right now-->
             <p class="text-3xl" id="lightning_icontainer">&#9889;&#9889;</p>
             <h2 class="font-medium my-5 text-2xl text-blue-600">Hours occupied: <span id="hours_label"></span></h2>
-            <input id="occupancy_slider" type="range" min="0" max="24" value="8" class="range w-2/3" oninput="recalculate_metrics()" />
+            <input id="occupancy_slider" type="range" min="0" max="10" value="5" class="range w-2/3" oninput="recalculate_metrics()" />
             <p class="text-3xl" id="clock_icontainer"></p>
         </div>
         <div class="w-7/12">
@@ -311,7 +311,8 @@
                 <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on vehicle emissions.</p>
                 <h3 class="font-bold text-dark-grey">Slide the charger and occupancy sliders to see how our EV infrastructure is making a difference!</h3>
                 <p class="text-2xl font-semibold text-dark-grey">Energy provided: <span id="kwh_produced"></span>kWh</p>
-                <p class="text-5xl font-bold text-green">GHGs avoided: <span id="ghgs_avoided"></span>lbs</p>
+                <p class="text-5xl font-bold text-green">GHGs avoided: <br><span id="ghgs_avoided"></span>lbs daily &#9728;</p>
+                <p class="text-5xl font-bold text-green">In a single year, that's <br><span id="ev_tree_equivalent"></span> trees &#127794;</p>
             </article>
         </div>
     </div>
@@ -355,13 +356,14 @@
             document.getElementById("hours_label").innerHTML = occupiedHours;
             occupiedHours = Number(occupiedHours)
             updateClockIcons(occupiedHours);
-            var kwhval = numChargers + occupiedHours; //TODO: add EV to KWH formula
-            var ghgval = numChargers - occupiedHours; //TODO: add KWH to GHG formula
-            update_ev_numbers(kwhval, ghgval)
+            var kwhval = numChargers * occupiedHours * Number(2.695); //TODO: add EV to KWH formula
+            var ghgval = kwhval * 1.79 *  2204.62 * 0.000404; //TODO: add KWH to GHG formula
+            var treeval = kwhval * 0.0116 * 180
+            update_ev_numbers(kwhval, ghgval, treeval)
         }
 
         function updateChargerIcons(num){
-            var n = Number(num)/4 //extra cast just in case
+            var n = Number(num)/30 //extra cast just in case
             var parent_div = document.getElementById('lightning_icontainer');
             parent_div.textContent = ""; // clear the icons
             for (let i=0;i<n;i++){
@@ -370,7 +372,7 @@
         }
 
         function updateClockIcons(num){
-            var n = Number(num)/4 //extra cast just in case
+            var n = Number(num) //extra cast just in case
             var parent_div = document.getElementById('clock_icontainer');
             parent_div.textContent = ""; // clear the icons
             for (let i=0;i<n;i++){
@@ -378,9 +380,13 @@
             }
         }
 
-        function update_ev_numbers(kwh, ghgs){
-            document.getElementById('kwh_produced').innerHTML = kwh;
-            document.getElementById('ghgs_avoided').innerHTML = ghgs;
+        function update_ev_numbers(kwh, ghgs, trees){
+            kwh_rounded = Math.round(kwh);
+            ghgs_rounded = Math.round(ghgs)
+            trees_rounded = Math.round(trees)
+            document.getElementById('kwh_produced').innerHTML = kwh_rounded.toLocaleString()
+            document.getElementById('ghgs_avoided').innerHTML = ghgs_rounded.toLocaleString()
+            document.getElementById('ev_tree_equivalent').innerHTML = trees_rounded.toLocaleString()
         }
         
 
