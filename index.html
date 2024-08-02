@@ -649,11 +649,11 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const bar_data = [
-                { category: 'Monta Vista', kwh: 70, color: '#2e7d32' },
-                { category: 'Homestead', kwh: 40, color: '#8e24aa' },
-                { category: 'Lynbrook', kwh: 50, color: '#ffc0cb' },
-                { category: 'Cupertino', kwh: 30, color: '#f39c12' },
-                { category: 'Fremont', kwh: 36, color: '#e74c3c' }
+                { category: 'Monta Vista', kwh: 678594.57, gas: 2603115.94, color: '#2e7d32' },
+                { category: 'Homestead', kwh: 610366.41, gas: 633171.25, color: '#8e24aa' },
+                { category: 'Lynbrook', kwh: 581030.6, gas: 418466.87, color: '#ffc0cb' },
+                { category: 'Cupertino', kwh: 557092.78, gas: 581146.13, color: '#f39c12' },
+                { category: 'Fremont', kwh: 258368.11, gas: 8037.95, color: '#e74c3c' }
             ];
 
             let ctx2 = document.getElementById('energyBarChart').getContext('2d');
@@ -662,13 +662,30 @@
                 data: {
                     labels: bar_data.map(row => row.category),
                     datasets: [{
-                        label: 'kWh used, by school',
+                        label: 'kWH CO2 emissions',
                         data: bar_data.map(row => row.kwh),
-                        backgroundColor: bar_data.map(row => row.color)
+                        backgroundColor: "blue",
+
+                    },
+                    {
+                        label: 'gas CO2 emissions',
+                        data: bar_data.map(row => row.gas),
+                        backgroundColor: "orange",
+
                     }]
+
                 },
                 options: {
                     indexAxis: 'y',
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+
                     plugins: {
                         legend: {
                             labels: {
@@ -680,6 +697,7 @@
                     }
                 }
             });
+
 
 
             let ctx3 = document.getElementById('usageChart').getContext('2d');
