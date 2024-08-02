@@ -70,6 +70,7 @@
         }
 
         @keyframes bounce {
+
             0%,
             20%,
             50%,
@@ -88,7 +89,7 @@
         }
 
         .section {
-            margin:11rem 5rem;
+            margin: 11rem 5rem;
         }
 
 
@@ -168,19 +169,24 @@
     </nav>
 
     <!-- Big Heading -->
-    <div class="hero min-h-screen" style="background-image: url(https://cdn.prod.website-files.com/64ef69890f8c25d119ae1fb4/6514ab39f4d82d4ed88bbf0f_Lead-Image-jpg.webp);">
+    <div class="hero min-h-screen"
+        style="background-image: url(https://cdn.prod.website-files.com/64ef69890f8c25d119ae1fb4/6514ab39f4d82d4ed88bbf0f_Lead-Image-jpg.webp);">
         <div class="hero-overlay bg-opacity-70 backdrop-grayscale bg-green-900"></div>
         <div class="hero-content text-center">
-          <div class="max-w-lg text-white">
-            <h1 class="text-6xl font-bold">FUHSD Sustainability Data Dashboard</h1>
-            <p class="py-6 text-md font-medium">
-              This is a snapshot of FUHSD's environmental impact, analyzing real FUHSD data for the <span class="font-black">2022-2023</span> school year. Scroll through to find interactives, dynamic charts, and visualizations of where we are as a district.
-              This is a snapshot of FUHSD's environmental impact, analyzing real FUHSD data for the <span class="font-black">2022-2023</span> school year. Scroll through to find interactives, dynamic charts, and visualizations of where we are as a district.
-            </p>
-            <button class="btn btn-primary" onclick="scrollDown(5)">Get Started</button>
-          </div>
+            <div class="max-w-lg text-white">
+                <h1 class="text-6xl font-bold">FUHSD Sustainability Data Dashboard</h1>
+                <p class="py-6 text-md font-medium">
+                    This is a snapshot of FUHSD's environmental impact, analyzing real FUHSD data for the <span
+                        class="font-black">2022-2023</span> school year. Scroll through to find interactives, dynamic
+                    charts, and visualizations of where we are as a district.
+                    This is a snapshot of FUHSD's environmental impact, analyzing real FUHSD data for the <span
+                        class="font-black">2022-2023</span> school year. Scroll through to find interactives, dynamic
+                    charts, and visualizations of where we are as a district.
+                </p>
+                <button class="btn btn-primary" onclick="scrollDown(5)">Get Started</button>
+            </div>
         </div>
-            <div class="arrow text-white">↓</div>
+        <div class="arrow text-white">↓</div>
     </div>
 
     <div id="static-title" class="static-title">FUHSD Sustainability</div>
@@ -191,7 +197,8 @@
             <article class="prose">
                 <h1 class="text-dark-grey">HVAC is responsible for <span class="text-green">33%</span> of our energy
                     usage.</h1>
-                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to saving thousands of
+                <p class="text-dark-grey">One degree adjustment in HVAC can save energy equivalent to saving thousands
+                    of
                     trees.</p>
                 <h3 class="font-bold text-dark-grey">Slide the thermometer up or down a few notches to see its carbon
                     impact!</h3>
@@ -206,39 +213,40 @@
     </div>
 
     <!-- Quick Stats Section -->
-     <div class="section">
+    <div class="section">
         <article class="prose mx-auto my-10">
             <h2 class="text-dark-grey text-center">Some quick stats:</h1>
         </article>
-    <div id="quick-stats-section" class="flex flex-row reveal">
-        <div class="w-1/4 mx-auto my-auto">
-            <div class="mb-8">
-                <h2 class="text-6xl font-black text-dark-grey mx-auto">7,075 mt</h2>
-                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the <span class="font-bold">past year</span>, calculated
-                    from energy bill data</p>
+        <div id="quick-stats-section" class="flex flex-row reveal">
+            <div class="w-1/4 mx-auto my-auto">
+                <div class="mb-8">
+                    <h2 class="text-6xl font-black text-dark-grey mx-auto">7,075 mt</h2>
+                    <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the <span
+                            class="font-bold">past year</span>, calculated
+                        from energy bill data</p>
+                </div>
+                <p class="text-xl text-dark-grey my-3">The data gathered from our energy bills indicates our current
+                    consumption trends and areas where we can improve.</p>
+                <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
             </div>
-            <p class="text-xl text-dark-grey my-3">The data gathered from our energy bills indicates our current
-                consumption trends and areas where we can improve.</p>
-            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
-        </div>
-        <div class="w-1/4 mx-auto my-auto"> <!--trees-->
-            <div class="mb-8">
-                <div id="treeAnim"></div>
-                <h2 class="text-6xl font-black text-dark-grey mx-auto">= 325,000 trees&#127794;</h2>
-                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
-                    from energy bill data</p>
+            <div class="w-1/4 mx-auto my-auto"> <!--trees-->
+                <div class="mb-8">
+                    <div id="treeAnim"></div>
+                    <h2 class="text-6xl font-black text-dark-grey mx-auto">= 325,000 trees&#127794;</h2>
+                    <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
+                        from energy bill data</p>
+                </div>
+                <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
             </div>
-            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
-        </div>
-        <div class="w-1/4 mx-auto my-auto"> <!--homes-->
-            <div class="mb-8">
-                <h2 class="text-6xl font-black text-dark-grey mx-auto">= 645 homes&#127968;</h2>
-                <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
-                    from energy bill data</p>
+            <div class="w-1/4 mx-auto my-auto"> <!--homes-->
+                <div class="mb-8">
+                    <h2 class="text-6xl font-black text-dark-grey mx-auto">= 645 homes&#127968;</h2>
+                    <p class="text-md text-dark-grey mx-2">Amount of CO2e produced by FUHSD in the past year, calculated
+                        from energy bill data</p>
+                </div>
+                <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
             </div>
-            <!--<a class="text-2xl font-bold underline mt-2 text-green" href="#">Learn more</a>-->
         </div>
-    </div>
     </div>
 
     <!-- Energy Bar Chart Section -->
@@ -270,13 +278,16 @@
                     <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleCupertino">CHS</button>
                     <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleFremont">FHS</button>
                     <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleLynbrook">LHS</button>
-                    <button class="btn bg-grey-700 text-xl text-light-grey" id="toggleDistrictOffice">District-Office</button>
+                    <button class="btn bg-grey-700 text-xl text-light-grey"
+                        id="toggleDistrictOffice">District-Office</button>
 
                 </div>
                 <canvas id="co2Chart"></canvas>
             </div>
-            <div class="w-1/5 ml-5 text-lg text-dark-grey my-auto">This chart tracks the <span class="font-bold">CO2e emissions due to energy produced by each school</span> over time.
-                By toggling different schools, you can see how each one contributes to the overall emissions and identify
+            <div class="w-1/5 ml-5 text-lg text-dark-grey my-auto">This chart tracks the <span class="font-bold">CO2
+                    emissions in kgs due to energy produced by each school</span> over time.
+                By toggling different schools, you can see how each one contributes to the overall emissions and
+                identify
                 patterns or trends that may inform future energy policies.</div>
         </div>
     </div>
@@ -298,21 +309,28 @@
 
     <div id="ev-section" class="flex flex-row mx-20 mb-40 space-x-6 section reveal">
         <div id="ev_sliders" class="m-auto w-1/2">
-            <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label"></span></h2>
-            <input id="charger_slider" type="range" min="0" max="270" value="120" step="30" class="range w-2/3" oninput="recalculate_metrics()"/> <!--arbitrary default for right now-->
+            <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label"></span>
+            </h2>
+            <input id="charger_slider" type="range" min="0" max="270" value="120" step="30" class="range w-2/3"
+                oninput="recalculate_metrics()" /> <!--arbitrary default for right now-->
             <p class="text-3xl" id="lightning_icontainer">&#9889;&#9889;</p>
             <h2 class="font-medium my-5 text-2xl text-blue-600">Hours occupied: <span id="hours_label"></span></h2>
-            <input id="occupancy_slider" type="range" min="0" max="10" value="5" class="range w-2/3" oninput="recalculate_metrics()" />
+            <input id="occupancy_slider" type="range" min="0" max="10" value="5" class="range w-2/3"
+                oninput="recalculate_metrics()" />
             <p class="text-3xl" id="clock_icontainer"></p>
         </div>
         <div class="w-7/12">
             <article class="prose">
                 <h1 class="text-dark-grey">Our path forward: <span class="text-orange-400">electrification</span></h1>
-                <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on vehicle emissions.</p>
-                <h3 class="font-bold text-dark-grey">Slide the charger and occupancy sliders to see how our EV infrastructure is making a difference!</h3>
+                <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on
+                    vehicle emissions.</p>
+                <h3 class="font-bold text-dark-grey">Slide the charger and occupancy sliders to see how our EV
+                    infrastructure is making a difference!</h3>
                 <p class="text-2xl font-semibold text-dark-grey">Energy provided: <span id="kwh_produced"></span>kWh</p>
-                <p class="text-5xl font-bold text-green">GHGs avoided: <br><span id="ghgs_avoided"></span>lbs daily &#9728;</p>
-                <p class="text-5xl font-bold text-green">In a single year, that's <br><span id="ev_tree_equivalent"></span> trees &#127794;</p>
+                <p class="text-5xl font-bold text-green">GHGs avoided: <br><span id="ghgs_avoided"></span>lbs daily
+                    &#9728;</p>
+                <p class="text-5xl font-bold text-green">In a single year, that's <br><span
+                        id="ev_tree_equivalent"></span> trees &#127794;</p>
             </article>
         </div>
     </div>
@@ -331,7 +349,8 @@
         <nav>
             <h6 class="footer-title">District</h6>
             <a class="link link-hover text-dark-grey" href="https://www.fuhsd.org" target="blank">About FUHSD</a>
-            <a class="link link-hover text-dark-grey" href="mailto:purva.marfatia@gmail.com?cc=hurshshah483@gmail.com">Contact</a>
+            <a class="link link-hover text-dark-grey"
+                href="mailto:purva.marfatia@gmail.com?cc=hurshshah483@gmail.com">Contact</a>
         </nav>
         <nav>
             <h6 class="footer-title">Legal</h6>
@@ -347,7 +366,7 @@
 
         */
         // functions for EV interactive (scaffolding for now, will get numbers & update)
-        function recalculate_metrics(){
+        function recalculate_metrics() {
             var numChargers = document.getElementById('charger_slider').value
             document.getElementById("charger_label").innerHTML = numChargers;
             numChargers = Number(numChargers);
@@ -357,30 +376,30 @@
             occupiedHours = Number(occupiedHours)
             updateClockIcons(occupiedHours);
             var kwhval = numChargers * occupiedHours * Number(2.695); //TODO: add EV to KWH formula
-            var ghgval = kwhval * 1.79 *  2204.62 * 0.000404; //TODO: add KWH to GHG formula
+            var ghgval = kwhval * 1.79 * 2204.62 * 0.000404; //TODO: add KWH to GHG formula
             var treeval = kwhval * 0.0116 * 180
             update_ev_numbers(kwhval, ghgval, treeval)
         }
 
-        function updateChargerIcons(num){
-            var n = Number(num)/30 //extra cast just in case
+        function updateChargerIcons(num) {
+            var n = Number(num) / 30 //extra cast just in case
             var parent_div = document.getElementById('lightning_icontainer');
             parent_div.textContent = ""; // clear the icons
-            for (let i=0;i<n;i++){
+            for (let i = 0; i < n; i++) {
                 parent_div.innerHTML += "&#9889;"
             }
         }
 
-        function updateClockIcons(num){
+        function updateClockIcons(num) {
             var n = Number(num) //extra cast just in case
             var parent_div = document.getElementById('clock_icontainer');
             parent_div.textContent = ""; // clear the icons
-            for (let i=0;i<n;i++){
+            for (let i = 0; i < n; i++) {
                 parent_div.innerHTML += "&#128336;"
             }
         }
 
-        function update_ev_numbers(kwh, ghgs, trees){
+        function update_ev_numbers(kwh, ghgs, trees) {
             kwh_rounded = Math.round(kwh);
             ghgs_rounded = Math.round(ghgs)
             trees_rounded = Math.round(trees)
@@ -388,7 +407,7 @@
             document.getElementById('ghgs_avoided').innerHTML = ghgs_rounded.toLocaleString()
             document.getElementById('ev_tree_equivalent').innerHTML = trees_rounded.toLocaleString()
         }
-        
+
 
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -399,15 +418,15 @@
                 autoplay: true,
                 path: 'https://lottie.host/c16fd91e-2419-4eb1-9540-bb352913bd6c/x92LxRS0s8.json'
             });
-    
+
             let isSummer = false;
             let temperature = 68;
             let startY = 0;
             let moving = false;
-    
+
             // Constants
             const CO2_PER_TREE_YEARLY = 21.77209; // CO2 offset per tree in kg per year
-    
+
             // HVAC Emissions data per temperature
             const hvacEmissionsPerTemp = {
                 summer: {
@@ -425,7 +444,7 @@
                     72: { emissions: 1_485_651, trees_required: 68_658 }
                 }
             };
-    
+
             function updateTemperatureDisplay() {
                 document.getElementById('temperatureDisplay').textContent = `Temperature: ${temperature}°F`;
                 const optimalTemp = isSummer ? 72 : 68;
@@ -437,7 +456,7 @@
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
-    
+
             function mapTemperatureToFrame(temp) {
                 if (isSummer) {
                     return 16 + (72 - temp) * 3;
@@ -445,14 +464,14 @@
                     return (temp - 68) * 4;
                 }
             }
-    
+
             const thermometer = document.getElementById('lottieThermometer');
             thermometer.addEventListener('mousedown', function (event) {
                 startY = event.clientY;
                 moving = true;
                 event.preventDefault();
             });
-    
+
             document.addEventListener('mousemove', function (event) {
                 if (moving) {
                     const diff = startY - event.clientY;
@@ -464,11 +483,11 @@
                     }
                 }
             });
-    
+
             document.addEventListener('mouseup', function () {
                 moving = false;
             });
-    
+
             document.getElementById('switchSeason').textContent = 'Switch to Summer';
             document.getElementById('switchSeason').addEventListener('click', function () {
                 isSummer = !isSummer;
@@ -476,107 +495,108 @@
                 this.textContent = isSummer ? 'Switch to Winter' : 'Switch to Summer';
                 updateTemperatureDisplay();
             });
-    
+
             updateTemperatureDisplay();
         });
 
         document.addEventListener('DOMContentLoaded', function () {
 
             const montaVistaData = [
-        		{ "Date": "01/31/2023", "C02 Emissions": 727663.36 },
-        		{ "Date": "02/28/2023", "C02 Emissions": 587880.11 },
-        		{ "Date": "03/31/2023", "C02 Emissions": 573896.29 },
-        		{ "Date": "04/30/2023", "C02 Emissions": 358956.79 },
-        		{ "Date": "05/31/2023", "C02 Emissions": 154547.06 },
-        		{ "Date": "06/30/2023", "C02 Emissions": 44783.33 },
-        		{ "Date": "07/31/2023", "C02 Emissions": 59512.29 },
-        		{ "Date": "08/31/2023", "C02 Emissions": 69921.89 },
-        		{ "Date": "09/30/2023", "C02 Emissions": 90718.94 },
-        		{ "Date": "10/31/2023", "C02 Emissions": 175833.46 },
-        		{ "Date": "11/30/2023", "C02 Emissions": 191784.22 },
-        		{ "Date": "12/31/2023", "C02 Emissions": 246212.81 }
+                { "Date": "01/31/2023", "CO2 Emissions in kgs": 727663.36 },
+                { "Date": "02/28/2023", "CO2 Emissions in kgs": 587880.11 },
+                { "Date": "03/31/2023", "CO2 Emissions in kgs": 573896.29 },
+                { "Date": "04/30/2023", "CO2 Emissions in kgs": 358956.79 },
+                { "Date": "05/31/2023", "CO2 Emissions in kgs": 154547.06 },
+                { "Date": "06/30/2023", "CO2 Emissions in kgs": 44783.33 },
+                { "Date": "07/31/2023", "CO2 Emissions in kgs": 59512.29 },
+                { "Date": "08/31/2023", "CO2 Emissions in kgs": 69921.89 },
+                { "Date": "09/30/2023", "CO2 Emissions in kgs": 90718.94 },
+                { "Date": "10/31/2023", "CO2 Emissions in kgs": 175833.46 },
+                { "Date": "11/30/2023", "CO2 Emissions in kgs": 191784.22 },
+                { "Date": "12/31/2023", "CO2 Emissions in kgs": 246212.81 }
             ];
 
             const homesteadData = [
-        		{ "Date": "01/31/2023", "C02 Emissions": 132923.78 },
-        		{ "Date": "02/28/2023", "C02 Emissions": 127939.64 },
-        		{ "Date": "03/31/2023", "C02 Emissions": 137513.42 },
-        		{ "Date": "04/30/2023", "C02 Emissions": 102474.1 },
-        		{ "Date": "05/31/2023", "C02 Emissions": 83268.44 },
-        		{ "Date": "06/30/2023", "C02 Emissions": 48221.93 },
-        		{ "Date": "07/31/2023", "C02 Emissions": 52872.79 },
-        		{ "Date": "08/31/2023", "C02 Emissions": 74645.42 },
-        		{ "Date": "09/30/2023", "C02 Emissions": 91089.36 },
-        		{ "Date": "10/31/2023", "C02 Emissions": 113818.21 },
-        		{ "Date": "11/30/2023", "C02 Emissions": 126739.71 },
-        		{ "Date": "12/31/2023", "C02 Emissions": 152030.9 }
+                { "Date": "01/31/2023", "CO2 Emissions in kgs": 132923.78 },
+                { "Date": "02/28/2023", "CO2 Emissions in kgs": 127939.64 },
+                { "Date": "03/31/2023", "CO2 Emissions in kgs": 137513.42 },
+                { "Date": "04/30/2023", "CO2 Emissions in kgs": 102474.1 },
+                { "Date": "05/31/2023", "CO2 Emissions in kgs": 83268.44 },
+                { "Date": "06/30/2023", "CO2 Emissions in kgs": 48221.93 },
+                { "Date": "07/31/2023", "CO2 Emissions in kgs": 52872.79 },
+                { "Date": "08/31/2023", "CO2 Emissions in kgs": 74645.42 },
+                { "Date": "09/30/2023", "CO2 Emissions in kgs": 91089.36 },
+                { "Date": "10/31/2023", "CO2 Emissions in kgs": 113818.21 },
+                { "Date": "11/30/2023", "CO2 Emissions in kgs": 126739.71 },
+                { "Date": "12/31/2023", "CO2 Emissions in kgs": 152030.9 }
 
             ];
 
             const cupertinoData = [
-        		{ "Date": "01/31/2023", "C02 Emissions": 156286.17 },
-        		{ "Date": "02/28/2023", "C02 Emissions": 145493.98 },
-        		{ "Date": "03/31/2023", "C02 Emissions": 143237.41 },
-        		{ "Date": "04/30/2023", "C02 Emissions": 97328.6 },
-        		{ "Date": "05/31/2023", "C02 Emissions": 68645.79 },
-        		{ "Date": "06/30/2023", "C02 Emissions": 47458.04 },
-        		{ "Date": "07/31/2023", "C02 Emissions": 42151.74 },
-        		{ "Date": "08/31/2023", "C02 Emissions": 50443.55 },
-        		{ "Date": "09/30/2023", "C02 Emissions": 63081.93 },
-        		{ "Date": "10/31/2023", "C02 Emissions": 83932.38 },
-        		{ "Date": "11/30/2023", "C02 Emissions": 106665.92 },
-        		{ "Date": "12/31/2023", "C02 Emissions": 133513.46 }
+                { "Date": "01/31/2023", "CO2 Emissions in kgs": 156286.17 },
+                { "Date": "02/28/2023", "CO2 Emissions in kgs": 145493.98 },
+                { "Date": "03/31/2023", "CO2 Emissions in kgs": 143237.41 },
+                { "Date": "04/30/2023", "CO2 Emissions in kgs": 97328.6 },
+                { "Date": "05/31/2023", "CO2 Emissions in kgs": 68645.79 },
+                { "Date": "06/30/2023", "CO2 Emissions in kgs": 47458.04 },
+                { "Date": "07/31/2023", "CO2 Emissions in kgs": 42151.74 },
+                { "Date": "08/31/2023", "CO2 Emissions in kgs": 50443.55 },
+                { "Date": "09/30/2023", "CO2 Emissions in kgs": 63081.93 },
+                { "Date": "10/31/2023", "CO2 Emissions in kgs": 83932.38 },
+                { "Date": "11/30/2023", "CO2 Emissions in kgs": 106665.92 },
+                { "Date": "12/31/2023", "CO2 Emissions in kgs": 133513.46 }
 
             ];
 
             const districtOfficeData = [
-                { "Date": " 1/19/2023", "CO2 Emissions": 27959.88 },
-                { "Date": " 2/17/2023", "CO2 Emissions": 27975.51 },
-                { "Date": " 3/21/2023", "CO2 Emissions": 27432.24 },
-                { "Date": " 4/20/2023", "CO2 Emissions": 24070.26 },
-                { "Date": " 5/19/2023", "CO2 Emissions": 19851.54 },
-                { "Date": " 6/20/2023", "CO2 Emissions": 17866.35 }
+                { "Date": " 1/19/2023", "CO2 Emissions in kgs": 27959.88 },
+                { "Date": " 2/17/2023", "CO2 Emissions in kgs": 27975.51 },
+                { "Date": " 3/21/2023", "CO2 Emissions in kgs": 27432.24 },
+                { "Date": " 4/20/2023", "CO2 Emissions in kgs": 24070.26 },
+                { "Date": " 5/19/2023", "CO2 Emissions in kgs": 19851.54 },
+                { "Date": " 6/20/2023", "CO2 Emissions in kgs": 17866.35 }
             ];
 
 
             const fremontData = [
-        		{ "Date": "01/31/2023", "C02 Emissions": 28241.43 },
-        		{ "Date": "02/28/2023", "C02 Emissions": 25660.15 },
-        		{ "Date": "03/31/2023", "C02 Emissions": 25946.79 },
-        		{ "Date": "04/30/2023", "C02 Emissions": 22745.67 },
-        		{ "Date": "05/31/2023", "C02 Emissions": 20082.7 },
-        		{ "Date": "06/30/2023", "C02 Emissions": 17901.61 },
-        		{ "Date": "07/31/2023", "C02 Emissions": 17899.15 },
-        		{ "Date": "08/31/2023", "C02 Emissions": 18542.75 },
-        		{ "Date": "09/30/2023", "C02 Emissions": 20967.47 },
-        		{ "Date": "10/31/2023", "C02 Emissions": 22372.98 },
-        		{ "Date": "11/30/2023", "C02 Emissions": 21703.19 },
-        		{ "Date": "12/31/2023", "C02 Emissions": 24342.24 }
+                { "Date": "01/31/2023", "CO2 Emissions in kgs": 28241.43 },
+                { "Date": "02/28/2023", "CO2 Emissions in kgs": 25660.15 },
+                { "Date": "03/31/2023", "CO2 Emissions in kgs": 25946.79 },
+                { "Date": "04/30/2023", "CO2 Emissions in kgs": 22745.67 },
+                { "Date": "05/31/2023", "CO2 Emissions in kgs": 20082.7 },
+                { "Date": "06/30/2023", "CO2 Emissions in kgs": 17901.61 },
+                { "Date": "07/31/2023", "CO2 Emissions in kgs": 17899.15 },
+                { "Date": "08/31/2023", "CO2 Emissions in kgs": 18542.75 },
+                { "Date": "09/30/2023", "CO2 Emissions in kgs": 20967.47 },
+                { "Date": "10/31/2023", "CO2 Emissions in kgs": 22372.98 },
+                { "Date": "11/30/2023", "CO2 Emissions in kgs": 21703.19 },
+                { "Date": "12/31/2023", "CO2 Emissions in kgs": 24342.24 }
 
             ];
 
             const lynbrookData = [
-                { "Date": "01/31/2023", "C02 Emissions": 135196.38 },
-                { "Date": "02/28/2023", "C02 Emissions": 121571.47 },
-                { "Date": "03/31/2023", "C02 Emissions": 133644.29 },
-                { "Date": "04/30/2023", "C02 Emissions": 100559.22 },
-                { "Date": "05/31/2023", "C02 Emissions": 70134.48 },
-                { "Date": "06/30/2023", "C02 Emissions": 40832.97 },
-                { "Date": "07/31/2023", "C02 Emissions": 22937.5 },
-                { "Date": "08/31/2023", "C02 Emissions": 54074.85 },
-                { "Date": "09/30/2023", "C02 Emissions": 73146.53 },
-                { "Date": "10/31/2023", "C02 Emissions": 82974.61 },
-                { "Date": "11/30/2023", "C02 Emissions": 73843.52 },
-                { "Date": "12/31/2023", "C02 Emissions": 90581.76 }
+                { "Date": "01/31/2023", "CO2 Emissions in kgs": 135196.38 },
+                { "Date": "02/28/2023", "CO2 Emissions in kgs": 121571.47 },
+                { "Date": "03/31/2023", "CO2 Emissions in kgs": 133644.29 },
+                { "Date": "04/30/2023", "CO2 Emissions in kgs": 100559.22 },
+                { "Date": "05/31/2023", "CO2 Emissions in kgs": 70134.48 },
+                { "Date": "06/30/2023", "CO2 Emissions in kgs": 40832.97 },
+                { "Date": "07/31/2023", "CO2 Emissions in kgs": 22937.5 },
+                { "Date": "08/31/2023", "CO2 Emissions in kgs": 54074.85 },
+                { "Date": "09/30/2023", "CO2 Emissions in kgs": 73146.53 },
+                { "Date": "10/31/2023", "CO2 Emissions in kgs": 82974.61 },
+                { "Date": "11/30/2023", "CO2 Emissions in kgs": 73843.52 },
+                { "Date": "12/31/2023", "CO2 Emissions in kgs": 90581.76 }
             ];
 
             let labels = montaVistaData.map(data => data['Date'].trim());
-            let montaVistaEmissions = montaVistaData.map(data => data['C02 Emissions']);
-            let homesteadEmissions = homesteadData.map(data => data['C02 Emissions']);
-            let cupertinoEmissions = cupertinoData.map(data => data['C02 Emissions']);
-            let fremontEmissions = fremontData.map(data => data['C02 Emissions']);
-            let lynbrookEmissions = lynbrookData.map(data => data['C02 Emissions']);
-            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2 Emissions']);
+            let montaVistaEmissions = montaVistaData.map(data => data['CO2 Emissions in kgs']);
+            let homesteadEmissions = homesteadData.map(data => data['CO2 Emissions in kgs']);
+            let cupertinoEmissions = cupertinoData.map(data => data['CO2 Emissions in kgs']);
+            let fremontEmissions = fremontData.map(data => data['CO2 Emissions in kgs']);
+            let lynbrookEmissions = lynbrookData.map(data => data['CO2 Emissions in kgs']);
+            let districtOfficeEmissions = districtOfficeData.map(data => data['CO2 Emissions in kgs']);
+
 
 
             let ctx = document.getElementById('co2Chart').getContext('2d');
@@ -605,7 +625,7 @@
                             font: {
                                 size: 30
                             },
-                            text: 'CO2e emissions, by school'
+                            text: 'CO2 emissions, by school'
                         }
                     },
                     scales: {
@@ -668,13 +688,13 @@
                 data: {
                     labels: bar_data.map(row => row.category),
                     datasets: [{
-                        label: 'kWH CO2 emissions',
+                        label: 'electricity CO2 emissions in kgs',
                         data: bar_data.map(row => row.kwh),
                         backgroundColor: "blue",
 
                     },
                     {
-                        label: 'gas CO2 emissions',
+                        label: 'gas CO2 emissions in kgs',
                         data: bar_data.map(row => row.gas),
                         backgroundColor: "orange",
 
@@ -713,7 +733,7 @@
                     labels: ["HVAC", "Lighting", "Computers/Electronics", "Water heating", "Food preparation & storage", "Other"],
                     datasets: [{
                         label: "Percentage:",
-                        backgroundColor: ['#2e7d32','#8e24aa','#f39c12','#e74c3c','#ffc0cb', '#599cff'],
+                        backgroundColor: ['#2e7d32', '#8e24aa', '#f39c12', '#e74c3c', '#ffc0cb', '#599cff'],
                         data: [33.3, 25.5, 9.5, 12.3, 6.1, 13.2]
                         // refrigeration & cooking combined, same for computers & electronics, and 5.5 put into water heating because we have pools!
                         // we really need to consider replacing/removing this feature unless we can get some better data :(
@@ -752,8 +772,8 @@
         window.addEventListener("scroll", reveal);
 
         reveal();
-        
-        function scrollDown(wait_time){
+
+        function scrollDown(wait_time) {
             const mainTitle = document.getElementById('main-title');
             const staticTitle = document.getElementById('static-title');
             setTimeout(() => {
