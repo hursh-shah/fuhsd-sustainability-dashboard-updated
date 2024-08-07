@@ -14,52 +14,52 @@
         html {
             scroll-behavior: smooth;
         }
-
+    
         body {
             background-color: #f5f5f7;
             color: #333;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-
+    
         .reveal {
             opacity: 0;
             transform: translateY(100px);
             transition: all 0.6s ease-in-out;
         }
-
+    
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-
+    
         .fade-in {
             animation: fadeIn 2s forwards;
         }
-
+    
         @keyframes fadeIn {
             0% {
                 opacity: 0;
             }
-
+    
             100% {
                 opacity: 1;
             }
         }
-
+    
         .fade-out {
             animation: fadeOut 3s forwards;
         }
-
+    
         @keyframes fadeOut {
             0% {
                 opacity: 1;
             }
-
+    
             100% {
                 opacity: 0;
             }
         }
-
+    
         .arrow {
             position: absolute;
             bottom: 20px;
@@ -68,7 +68,7 @@
             font-size: 2rem;
             animation: bounce 2s infinite;
         }
-
+    
         @keyframes bounce {
             0%,
             20%,
@@ -77,44 +77,44 @@
             100% {
                 transform: translateX(-50%) translateY(0);
             }
-
+    
             40% {
                 transform: translateX(-50%) translateY(-10px);
             }
-
+    
             60% {
                 transform: translateX(-50%) translateY(-5px);
             }
         }
-
+    
         .section {
             margin: 11rem 5rem;
         }
-
+    
         .bg-light-grey {
             background-color: #e0e0e0;
         }
-
+    
         .text-dark-grey {
             color: #333;
         }
-
+    
         .text-green {
             color: #2e7d32;
         }
-
+    
         .text-9xl {
             font-size: 7rem;
         }
-
+    
         .text-5xl {
             font-size: 4rem;
         }
-
+    
         .text-2xl {
             font-size: 2rem;
         }
-
+    
         .static-title {
             position: fixed;
             top: 10px;
@@ -125,11 +125,11 @@
             display: none;
             color: #2e7d32;
         }
-
+    
         .visible {
             display: block;
         }
-
+    
         .navbar {
             background-color: #f5f5f7;
             color: #2e7d32;
@@ -141,61 +141,66 @@
             z-index: 1000;
             display: none;
         }
-
+    
         .navbar.visible {
             display: flex;
             justify-content: center;
             gap: 1rem;
         }
-
+    
         .nav-link {
             color: #2e7d32;
             font-size: 1.5rem;
             cursor: pointer;
         }
-
+    
         /* Override DaisyUI's dark mode */
         :root {
             --btn-text-color: #333;
             --btn-bg-color: #f5f5f7;
             --btn-border-color: #ddd;
         }
-
+    
         .btn {
             color: var(--btn-text-color);
             background-color: var(--btn-bg-color);
             border-color: var(--btn-border-color);
         }
-
+    
         /* Responsive design */
         @media (max-width: 1024px) {
             .section {
                 margin: 6rem 2rem;
             }
         }
-
+    
         @media (max-width: 768px) {
             .section {
                 margin: 3rem 1rem;
             }
-
+    
             .navbar {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-
+    
             .hero-content h1 {
                 font-size: 4rem;
             }
-
+    
             .hero-content p {
                 font-size: 1rem;
             }
         }
-
+    
         /* Increased top margin for HVAC section */
         #hvac-section {
-            margin-top: 5rem;
+            margin-top: 15rem;
+        }
+    
+        /* Custom off-white text color */
+        .text-off-white {
+            color: #f5f5f5e8;
         }
     </style>
 </head>
@@ -345,23 +350,24 @@
         </div>
     </div>
 
-    <footer class="footer bg-black text-white p-10">
+    <footer class="footer bg-black text-off-white p-10">
         <aside class="flex items-center space-x-4">
             <img src="large-logo.png" alt="FUHSD Logo" class="w-16 h-auto">
             <p>FUHSD<br />Committed to serving students</p>
         </aside>
         <nav>
             <h6 class="footer-title">District</h6>
-            <a class="link link-hover text-white" href="https://www.fuhsd.org" target="_blank">About FUHSD</a>
-            <a class="link link-hover text-white" href="contact.html">Contact</a>
+            <a class="link link-hover text-off-white" href="https://www.fuhsd.org" target="_blank">About FUHSD</a>
+            <a class="link link-hover text-off-white" href="contact.html">Contact</a>
         </nav>
         <nav>
             <h6 class="footer-title">Legal</h6>
-            <a class="link link-hover text-white">Terms of use</a>
-            <a class="link link-hover text-white">Privacy policy</a>
-            <a class="link link-hover text-white">Cookie policy</a>
+            <a class="link link-hover text-off-white">Terms of use</a>
+            <a class="link link-hover text-off-white">Privacy policy</a>
+            <a class="link link-hover text-off-white">Cookie policy</a>
         </nav>
     </footer>
+    
     
         
     <script>
