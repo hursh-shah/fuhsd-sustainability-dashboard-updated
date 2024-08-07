@@ -202,6 +202,56 @@
         .text-off-white {
             color: #f5f5f5e8;
         }
+
+        .arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .thermo-arrows {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #151615;
+        }
+
+        .thermo-arrows span {
+            display: block;
+            margin: 30px 0;
+            animation: bounce 1.5s infinite;
+        }
+
+        .thermo-arrows span:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .thermo-arrows span:nth-child(3) {
+            animation-delay: 1s;
+        }
     </style>
 </head>
 
@@ -244,10 +294,15 @@
                 <button class="btn text-dark-grey text-2xl font-bold" id="switchSeason">Switch to Winter</button>
             </article>
         </div>
-        <div class="thermostat-animation rounded-md" id="thermo-background">
+        <div class="thermostat-animation rounded-md relative" id="thermo-background">
             <div class="my-14" id="lottieThermometer"></div>
+            <div class="thermo-arrows">
+                <span>▲</span>
+                <span>▼</span>
+            </div>
         </div>
     </div>
+    
 
     <!-- Quick Stats Section -->
     <div class="section">
