@@ -252,6 +252,20 @@
         .thermo-arrows span:nth-child(3) {
             animation-delay: 1s;
         }
+
+        .heart {
+                animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
     </style>
 </head>
 
@@ -421,11 +435,14 @@
             <a class="link link-hover text-off-white" href="privacy-policy.html">Privacy Policy</a>
             <a class="link link-hover text-off-white" href="cookie-policy.html">Cookie Policy</a>
         </nav>
+        <div class="made-with-love text-center mt-4">
+            <p class="text-white">
+                Made with <span class="heart">♡</span> by 
+                <a href="https://www.linkedin.com/in/hursh-shah-5529b4262/" class="text-green-500 hover:text-green-300" target="_blank">Hursh Shah</a>
+            </p>
+        </div>
     </footer>
-    
-    
-    
-        
+     
     <script>
         // Functions for EV interactive
         function recalculate_metrics() {
