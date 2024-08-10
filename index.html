@@ -383,21 +383,21 @@
 
     <div id="ev-section" class="flex flex-row mx-20 mb-40 space-x-6 section reveal">
         <div id="ev_sliders" class="m-auto w-1/2">
-            <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label"></span></h2>
+            <h2 class="my-5 font-medium text-2xl text-blue-600">Number of EV chargers: <span id="charger_label">120</span></h2>
             <input id="charger_slider" type="range" min="0" max="270" value="120" step="30" class="range w-2/3" oninput="recalculate_metrics()" />
             <p class="text-3xl" id="lightning_icontainer">&#9889;&#9889;</p>
-            <h2 class="font-medium my-5 text-2xl text-blue-600">Hours occupied: <span id="hours_label"></span></h2>
+            <h2 class="font-medium my-5 text-2xl text-blue-600">Hours occupied: <span id="hours_label">5</span></h2>
             <input id="occupancy_slider" type="range" min="0" max="10" value="5" class="range w-2/3" oninput="recalculate_metrics()" />
             <p class="text-3xl" id="clock_icontainer"></p>
         </div>
         <div class="w-7/12">
             <article class="prose">
                 <h1 class="text-dark-grey">Our path forward: <span class="text-orange-400">electrification</span></h1>
-                <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on vehicle emissions.</p>
+                <p class="text-dark-grey">By incentivizing EV usage in students and staff, FUHSD is able to cut down on vehicle emissions. We currently have <strong>~ 200</strong> chargers across all our high school sites, and the average occupancy for each is <strong>~ 5</strong> hours.</p>
                 <h3 class="font-bold text-dark-grey">Slide the charger and occupancy sliders to see how our EV infrastructure is making a difference!</h3>
-                <p class="text-2xl font-semibold text-dark-grey">Energy provided: <span id="kwh_produced"></span>kWh</p>
-                <p class="text-5xl font-bold text-green">GHGs avoided: <br><span id="ghgs_avoided"></span>lbs daily &#9728;</p>
-                <p class="text-5xl font-bold text-green">In a single year, that's<br>~<span id="ev_tree_equivalent"></span> trees &#127794;</p>
+                <p class="text-2xl font-semibold text-dark-grey">Energy provided: <span id="kwh_produced">1,617</span>kWh</p>
+                <p class="text-5xl font-bold text-green">GHGs avoided: <br><span id="ghgs_avoided">2,578</span>lbs daily &#9728;</p>
+                <p class="text-5xl font-bold text-green">In a single year, that's<br>~<span id="ev_tree_equivalent">3,376</span> trees &#127794;</p>
             </article>
         </div>
     </div>
@@ -782,7 +782,8 @@
                     datasets: [{
                         label: "Percentage:",
                         backgroundColor: ['#2e7d32','#8e24aa','#f39c12','#e74c3c','#ffc0cb', '#599cff'],
-                        data: [33.3, 25.5, 9.5, 12.3, 6.1, 13.2]
+                        data: [42, 16.9, 9.5, 17.3, 6.1, 8.2]
+                        //decreased lighting because higher efficiency, increased HVAC based on info from Steve; increased water heating because paper's data only accounted for tap/fountain use
                     }]
                 },
                 options: {
