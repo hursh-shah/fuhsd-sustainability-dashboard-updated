@@ -514,7 +514,7 @@
                 const baseEmissions = hvacEmissionsPerTemp[isSummer ? 'summer' : 'winter'][optimalTemp].emissions;
                 const extraCO2 = Math.abs(currentEmissions - baseEmissions);
                 const treesRequired = Math.round((extraCO2 / CO2_PER_TREE_YEARLY) / 100) * 100; // Rounded to the nearest hundred
-                document.getElementById('co2Impact').textContent = `Trees Saved: ${treesRequired.toLocaleString()}`;
+                document.getElementById('co2Impact').textContent = `CO2 Released: ${treesRequired.toLocaleString()}`;
                 const frame = mapTemperatureToFrame(temperature);
                 lottieAnimation.goToAndStop(frame, true);
             }
